@@ -1,5 +1,91 @@
 layout: {zmk_keyboard: corne}
 layers:
+  Media:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PREV
+  - PP
+  - NEXT
+  - MUTE
+  - VOL DN
+  - VOL UP
+  - BT CLR
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: Base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: Symbols, h: toggle}
+  - ''
+  - SPC
+  - ENTER
+  - ''
+  - ''
+  Symbols:
+  - TAB
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - KP MULTIPLY
+  - (
+  - )
+  - BSPC
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - '-'
+  - '='
+  - '['
+  - ']'
+  - \
+  - '`'
+  - {t: Base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - _
+  - +
+  - '{'
+  - '}'
+  - '|'
+  - '~'
+  - {t: Base, h: toggle}
+  - {t: Media, h: toggle}
+  - SPC
+  - ENTER
+  - ''
+  - ''
   Base:
   - TAB
   - Q
@@ -80,51 +166,8 @@ layers:
   - ''
   - ''
   - ''
-  - {t: Base, h: toggle}
   - {t: Function, h: toggle}
-  - SPC
-  - ENTER
-  - ''
-  - ''
-  Symbols:
-  - TAB
-  - '!'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - KP MULTIPLY
-  - (
-  - )
-  - BSPC
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - '-'
-  - '='
-  - '['
-  - ']'
-  - \
-  - '`'
   - {t: Base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - _
-  - +
-  - '{'
-  - '}'
-  - '|'
-  - '~'
-  - {t: Base, h: toggle}
-  - {t: Media, h: toggle}
   - SPC
   - ENTER
   - ''
@@ -166,52 +209,9 @@ layers:
   - ''
   - ''
   - ''
-  - {t: Symbols, h: toggle}
+  - ''
   - {t: Nav&Num, h: toggle}
   - ''
   - ''
-  - ''
-  - ''
-  Media:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - PREV
-  - PP
-  - NEXT
-  - MUTE
-  - VOL DN
-  - VOL UP
-  - BT CLR
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Symbols, h: toggle}
-  - {t: Nav&Num, h: toggle}
-  - SPC
-  - ENTER
   - ''
   - ''
