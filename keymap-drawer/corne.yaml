@@ -108,8 +108,8 @@ layers:
   - H
   - {t: J, h: RSHFT}
   - {t: K, h: RCTRL}
-  - {t: L, h: RA}
-  - ;
+  - {t: L, h: RALT}
+  - {t: ;, h: RGUI}
   - ''''
   - {t: Base, h: toggle}
   - Z
