@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: corne}
 layers:
-  Function Keys:
+  Function:
   - F1
   - F2
   - F3
@@ -38,12 +38,12 @@ layers:
   - ''
   - ''
   - ''
-  - {t: Nav and Numbers, h: toggle}
+  - {t: Nav&Num, h: toggle}
   - ''
   - ''
   - ''
   - ''
-  Nav and Numbers:
+  Nav&Num:
   - TAB
   - '1'
   - '2'
@@ -60,12 +60,12 @@ layers:
   - {t: END, h: LALT}
   - {t: PG UP, h: LCTRL}
   - {t: PG DN, h: LSHFT}
+  - PRINTSCREEN
+  - PAUSE BREAK
   - {t: LEFT ARROW, h: RSHFT}
   - {t: DOWN ARROW, h: RCTRL}
   - {t: UP ARROW, h: RALT}
   - {t: RIGHT ARROW, h: RGUI}
-  - ''
-  - ''
   - ''
   - ''
   - {t: Base, h: toggle}
@@ -74,13 +74,13 @@ layers:
   - ''
   - ''
   - ''
-  - PRINTSCREEN
-  - PAUSE BREAK
   - ''
   - ''
   - ''
   - ''
-  - {t: Function Keys, h: toggle}
+  - ''
+  - ''
+  - {t: Function, h: toggle}
   - {t: Base, h: toggle}
   - SPACE
   - RET
@@ -105,10 +105,10 @@ layers:
   - {t: D, h: LCTRL}
   - {t: F, h: LSHFT}
   - G
-  - {t: H, h: RSHFT}
-  - {t: J, h: RCTRL}
-  - {t: K, h: RALT}
-  - {t: L, h: RGUI}
+  - H
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: RA}
   - ;
   - ''''
   - {t: Base, h: toggle}
@@ -123,7 +123,7 @@ layers:
   - .
   - /
   - ''
-  - {t: Nav and Numbers, h: toggle}
+  - {t: Nav&Num, h: toggle}
   - Symbols
   - SPACE
   - RET
