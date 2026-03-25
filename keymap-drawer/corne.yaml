@@ -1,91 +1,5 @@
 layout: {zmk_keyboard: corne}
 layers:
-  Function:
-  - F1
-  - F2
-  - F3
-  - F4
-  - F5
-  - F6
-  - F7
-  - F8
-  - F9
-  - F10
-  - F11
-  - F12
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Nav&Num, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  Nav&Num:
-  - TAB
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - BSPC
-  - HOME
-  - {t: END, h: LGUI}
-  - {t: PG UP, h: LALT}
-  - {t: PG DN, h: LCTRL}
-  - {t: PRINTSCREEN, h: LSHFT}
-  - PAUSE BREAK
-  - {t: LEFT ARROW, h: RSHFT}
-  - {t: DOWN ARROW, h: RCTRL}
-  - {t: UP ARROW, h: RALT}
-  - {t: RIGHT ARROW, h: RGUI}
-  - ''
-  - ''
-  - {t: Base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Function, h: toggle}
-  - {t: Base, h: toggle}
-  - SPACE
-  - RET
-  - ''
-  - ''
   Base:
   - TAB
   - Q
@@ -111,7 +25,7 @@ layers:
   - {t: L, h: RALT}
   - {t: ;, h: RGUI}
   - ''''
-  - {t: Base, h: toggle}
+  - {t: Function, h: toggle}
   - Z
   - X
   - C
@@ -125,10 +39,53 @@ layers:
   - ''
   - {t: Nav&Num, h: toggle}
   - {t: Symbols, h: toggle}
-  - SPACE
-  - RET
-  - BACKSPACE
+  - SPC
+  - ENTER
+  - BSPC
   - DEL
+  Nav&Num:
+  - TAB
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - BSPC
+  - HOME
+  - {t: END, h: LGUI}
+  - {t: PG UP, h: LALT}
+  - {t: PG DN, h: LCTRL}
+  - {t: PRINTSCREEN, h: LSHFT}
+  - PAUSE BREAK
+  - {t: LEFT, h: RSHFT}
+  - {t: DOWN, h: RCTRL}
+  - {t: UP, h: RALT}
+  - {t: RIGHT, h: RGUI}
+  - ''
+  - ''
+  - {t: Base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: Base, h: toggle}
+  - {t: Function, h: toggle}
+  - SPC
+  - ENTER
+  - ''
+  - ''
   Symbols:
   - TAB
   - '!'
@@ -168,8 +125,51 @@ layers:
   - '~'
   - {t: Base, h: toggle}
   - {t: Media, h: toggle}
-  - SPACE
-  - RET
+  - SPC
+  - ENTER
+  - ''
+  - ''
+  Function:
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - F12
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: Base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: Symbols, h: toggle}
+  - {t: Nav&Num, h: toggle}
+  - ''
+  - ''
   - ''
   - ''
   Media:
@@ -210,8 +210,8 @@ layers:
   - ''
   - ''
   - {t: Symbols, h: toggle}
-  - ''
-  - SPACE
-  - RET
+  - {t: Nav&Num, h: toggle}
+  - SPC
+  - ENTER
   - ''
   - ''
