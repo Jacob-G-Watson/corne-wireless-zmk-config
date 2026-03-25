@@ -56,11 +56,11 @@ layers:
   - '9'
   - '0'
   - BSPC
-  - {t: HOME, h: LGUI}
-  - {t: END, h: LALT}
-  - {t: PG UP, h: LCTRL}
-  - {t: PG DN, h: LSHFT}
-  - PRINTSCREEN
+  - HOME
+  - {t: END, h: LGUI}
+  - {t: PG UP, h: LALT}
+  - {t: PG DN, h: LCTRL}
+  - {t: PRINTSCREEN, h: LSHFT}
   - PAUSE BREAK
   - {t: LEFT ARROW, h: RSHFT}
   - {t: DOWN ARROW, h: RCTRL}
