@@ -39,7 +39,52 @@
 
     keymap {
         compatible = "zmk,keymap";
-        extra_1 {
+        default_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSPC |
+// | ESC  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
+// | FN   |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  |      |
+//          | NAV | SYM | SPC | ENTER | BSPC | DEL |
+            display-name = "Base";
+            bindings = <
+    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
+    &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI &kp SQT
+    &to 3     &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
+              &to 1 &to 2 &kp SPC &kp ENTER &kp BSPC &kp DEL
+            >;
+        };
+
+        lower_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
+// | HOME | END | PGUP| PGDN| PSCR| PAUS|   | LEFT | DOWN|  UP | RIGHT|    |      |
+// | BASE |     |     |     |     |     |   |      |     |     |      |    |      |
+//          | BASE | FN | SPC | ENTER |   |     |
+            display-name = "Nav&Num";
+            bindings = <
+    &kp TAB   &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6   &kp N7   &kp N8 &kp N9  &kp N0 &kp BSPC
+    &kp HOME  &hml LGUI END &hml LALT PG_UP &hml LCTRL PG_DN &hml LSHFT PRINTSCREEN &kp PAUSE_BREAK   &hmr RSHFT LEFT &hmr RCTRL DOWN &hmr RALT UP &hmr RGUI RIGHT  &none &none
+    &to 0     &none   &none   &none &none     &none   &none &none  &none &none     &none &none
+               &to 0  &to 3   &kp SPC &kp ENTER &none &none
+            >;
+        };
+
+        raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
+// |      |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | BASE |     |     |     |     |     |   |  _  |  +  |  {  |  }  |  |  |  ~   |
+//          | BASE | MED | SPC | ENTER |   |     |
+            display-name = "Symbols";
+            bindings = <
+    &kp TAB   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+    &none     &none    &none  &none    &none    &none       &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+    &to 0     &none    &none  &none    &none    &none       &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+               &to 0   &to 4  &kp SPC &kp ENTER &none &none
+            >;
+        };
+
+        function_layer {
 // -----------------------------------------------------------------------------------------
 // | F1   | F2  | F3  | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12  |
 // | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
@@ -49,59 +94,12 @@
             bindings = <
    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12
     &none   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-   &to 2  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-               &none   &to 1   &none   &none   &none   &none
-            >;
-        };
- 
-
-        lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | HOM | END | PGUP| PGDN| INS| DEL |   | ESC  |     |     |     |     |     |
-// | BASE |    |    |    |    |    |   |     |    |    |    |    |    |
-//          | BASE | MED | SPC | ENT |   |     |
-            display-name = "Nav&Num";
-            bindings = <
-   &kp TAB  &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6   &kp N7   &kp N8 &kp N9  &kp N0 &kp BSPC
-    &kp HOME &hml LGUI END &hml LALT PG_UP &hml LCTRL PG_DN &hml LSHFT PRINTSCREEN &kp PAUSE_BREAK   &hmr RSHFT LEFT_ARROW &hmr RCTRL DOWN_ARROW &hmr RALT UP_ARROW &hmr RGUI RIGHT_ARROW  &none &none 
-    &to 2      &none   &none   &none &none     &none   &none &none  &none &none     &none &none
-                  	&to 0   &to 2    &kp SPACE    &kp RET  &none   &none
+   &to 0   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+               &to 2   &to 1   &none   &none   &none   &none
             >;
         };
 
-        default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | ESC  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | MED  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |      |
-//          | LWR | RSE | SPC | ENT | BSP | DEL |
-            display-name = "Base";
-            bindings = <
-    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
-    &kp ESC &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI &kp SQT
-    &to 2    &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
-          &to 1 &to 3 &kp SPACE   &kp RET &kp BACKSPACE &kp DEL
-            >;
-        };
-
-
-        raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// |      |   |   |   |   |   |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | BASE |   |   |   |   |   |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//          | BASE | FN | SPC | ENT |   |     |
-            display-name = "Symbols";
-            bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-    &none &none   &none &none   &none   &none    &kp MINUS &kp EQUAL &kp LBKT    &kp RBKT &kp BSLH &kp GRAVE
-    &to 2  &none   &none &none   &none   &none    &kp UNDER &kp PLUS  &kp LBRC    &kp RBRC &kp PIPE &kp TILDE
-             	  &to 2 &to 4   &kp SPACE   &kp RET   &none  &none
-            >;
-        };
-
-       extra_2 {
+        media_layer {
 // -----------------------------------------------------------------------------------------
 // |      |    |    |    |    |    |   | PREV | PLAY | NEXT | MUTE | VOLD | VOLU |
 // |BTCLR | BT1| BT2| BT3| BT4| BT5|   |      |      |      |      |      |      |
@@ -111,14 +109,9 @@
             bindings = <
    &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP
     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4        &none     &none       &none       &none          &none &none
-    &to 2  &none  &none  &none  &none  &none  &none       &none     &none       &none       &none          &none
-             &to 3  &none  &kp SPACE  &kp RET  &none  &none
+    &to 0  &none  &none  &none  &none  &none  &none       &none     &none       &none       &none          &none
+             &to 2  &to 1  &kp SPC  &kp ENTER  &none  &none
             >;
-        };
-
-
-        extra_3 {
-            status = "reserved";
         };
     };
 };
