@@ -45,7 +45,7 @@
 // | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
 // | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
 //          | SYM |   |   |   |   |   |
-            display-name = "Function Keys";
+            display-name = "Function";
             bindings = <
    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12
     &none   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
@@ -61,11 +61,11 @@
 // | HOM | END | PGUP| PGDN| INS| DEL |   | ESC  |     |     |     |     |     |
 // | BASE |    |    |    |    |    |   |     |    |    |    |    |    |
 //          | BASE | MED | SPC | ENT |   |     |
-            display-name = "Nav and Numbers";
+            display-name = "Nav&Num";
             bindings = <
    &kp TAB  &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6   &kp N7   &kp N8 &kp N9  &kp N0 &kp BSPC
-    &hml LGUI HOME &hml LALT END &hml LCTRL PG_UP &hml LSHFT PG_DN  &hmr RSHFT LEFT_ARROW &hmr RCTRL DOWN_ARROW &hmr RALT UP_ARROW &hmr RGUI RIGHT_ARROW  &none &none &none &none
-    &to 2      &none   &none   &none &none     &none   &kp PRINTSCREEN   &kp PAUSE_BREAK   &none &none     &none &none
+    &hml LGUI HOME &hml LALT END &hml LCTRL PG_UP &hml LSHFT PG_DN &kp PRINTSCREEN   &kp PAUSE_BREAK   &hmr RSHFT LEFT_ARROW &hmr RCTRL DOWN_ARROW &hmr RALT UP_ARROW &hmr RGUI RIGHT_ARROW  &none &none 
+    &to 2      &none   &none   &none &none     &none   &none &none  &none &none     &none &none
                   	&to 0   &to 2    &kp SPACE    &kp RET  &none   &none
             >;
         };
@@ -79,7 +79,7 @@
             display-name = "Base";
             bindings = <
     &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
-    &kp ESC &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &hmr RSHFT H &hmr RCTRL J  &hmr RALT K   &hmr RGUI L   &kp SEMI &kp SQT
+    &kp ESC &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K   &hmr RA L   &kp SEMI &kp SQT
     &to 2    &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
           &to 1 &mo 3 &kp SPACE   &kp RET &kp BACKSPACE &kp DEL
             >;
