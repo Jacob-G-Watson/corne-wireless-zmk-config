@@ -624,7 +624,8 @@ path.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#Symbols">
 <text x="0" y="0" class="key tap layer-activator">Symbols</text>
-</a></g>
+</a><text x="0" y="24" class="key hold">toggle</text>
+</g>
 <g transform="translate(351, 224) rotate(30.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
 <text x="0" y="0" class="key tap">SPACE</text>
@@ -789,11 +790,11 @@ path.combo {
 <text x="0" y="0" class="key tap layer-activator">Base</text>
 </a><text x="0" y="24" class="key hold">toggle</text>
 </g>
-<g transform="translate(286, 213) rotate(15.0)" class="key held keypos-37">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(286, 213) rotate(15.0)" class="key keypos-37">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#Media">
-<text x="0" y="0" class="key held tap layer-activator">Media</text>
-</a><text x="0" y="24" class="key held hold">toggle</text>
+<text x="0" y="0" class="key tap layer-activator">Media</text>
+</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(351, 224) rotate(30.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>

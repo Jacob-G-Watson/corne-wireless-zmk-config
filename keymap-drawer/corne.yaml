@@ -124,7 +124,7 @@ layers:
   - /
   - ''
   - {t: Nav&Num, h: toggle}
-  - Symbols
+  - {t: Symbols, h: toggle}
   - SPACE
   - RET
   - BACKSPACE
@@ -167,7 +167,7 @@ layers:
   - '|'
   - '~'
   - {t: Base, h: toggle}
-  - {t: Media, h: toggle, type: held}
+  - {t: Media, h: toggle}
   - SPACE
   - RET
   - ''
