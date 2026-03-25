@@ -8,64 +8,117 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
 
-                default_layer {
+/ {
+    
+    behaviors {
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+            hold-trigger-on-release;
+        };
+
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+            hold-trigger-on-release;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+        extra_1 {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        display-name = "Base";
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
-                lower_layer {
+// | F1   | F2  | F3  | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12  |
+// | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
+// | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
+//          | SYM |   |   |   |   |   |
+            display-name = "Function Keys";
+            bindings = <
+   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12
+    &none   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+   &to 2  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+               &none   &to 1   &none   &none   &none   &none
+            >;
+        };
+ 
+
+        lower_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        display-name = "Lower";
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
+// | HOM | END | PGUP| PGDN| INS| DEL |   | ESC  |     |     |     |     |     |
+// | BASE |    |    |    |    |    |   |     |    |    |    |    |    |
+//          | BASE | MED | SPC | ENT |   |     |
+            display-name = "Nav and Numbers";
+            bindings = <
+   &kp TAB  &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6   &kp N7   &kp N8 &kp N9  &kp N0 &kp BSPC
+    &hml LGUI HOME &hml LALT END &hml LCTRL PG_UP &hml LSHFT PG_DN  &hmr RSHFT LEFT_ARROW &hmr RCTRL DOWN_ARROW &hmr RALT UP_ARROW &hmr RGUI RIGHT_ARROW  &none &none
+    &to 2      &none   &none   &none &none     &none   &kp PRINTSCREEN   &kp PAUSE_BREAK   &none &none     &none &none
+                  	&to 0   &to 2    &kp SPACE    &kp RET  &none   &none
+            >;
+        };
 
-                raise_layer {
+        default_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | ESC  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | MED  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |      |
+//          | LWR | RSE | SPC | ENT | BSP | DEL |
+            display-name = "Base";
+            bindings = <
+    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
+    &kp ESC &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &hmr RSHFT H &hmr RCTRL J  &hmr RALT K   &hmr RGUI L   &kp SEMI &kp SQT
+    &to 2    &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
+          &to 1 &mo 3 &kp SPACE   &kp RET &kp BACKSPACE &kp DEL
+            >;
+        };
+
+
+        raise_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        display-name = "Raise";
-                        bindings = <
+// |      |   |   |   |   |   |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | BASE |   |   |   |   |   |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//          | BASE | FN | SPC | ENT |   |     |
+            display-name = "Symbols";
+            bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
-
-                extra_1 {
-                        status = "reserved";
-                };
-
-                extra_2 {
-                        status = "reserved";
-                };
-
-                extra_3 {
-                        status = "reserved";
-                };
+    &none &none   &none &none   &none   &none    &kp MINUS &kp EQUAL &kp LBKT    &kp RBKT &kp BSLH &kp GRAVE
+    &to 2  &none   &none &none   &none   &none    &kp UNDER &kp PLUS  &kp LBRC    &kp RBRC &kp PIPE &kp TILDE
+             	  &to 2 &to 4   &kp SPACE   &kp RET   &none  &none
+            >;
         };
+
+       extra_2 {
+// -----------------------------------------------------------------------------------------
+// |      |    |    |    |    |    |   | PREV | PLAY | NEXT | MUTE | VOLD | VOLU |
+// |BTCLR | BT1| BT2| BT3| BT4| BT5|   |      |      |      |      |      |      |
+// | BASE |    |    |    |    |    |   |      |      |      |      |      |      |
+//          |     | LWR | SPC | ENT |   |     |
+            display-name = "Media";
+            bindings = <
+   &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP
+    &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4        &none     &none       &none       &none          &none
+    &to 2  &none  &none  &none  &none  &none  &none       &none     &none       &none       &none          &none
+             &to 3  &none  &kp SPACE  &kp RET  &none  &none
+            >;
+        };
+
+
+        extra_3 {
+            status = "reserved";
+        };
+    };
 };
