@@ -60,7 +60,6 @@
              &to SYMBOLS  &none  &kp SPC  &kp ENTER  &none  &none
             >;
         };
-    };
 
         raise_layer {
 // -----------------------------------------------------------------------------------------
@@ -122,4 +121,5 @@
                &none   &to NAVNUM   &none   &none   &none   &none
             >;
         };
+    };
 };
