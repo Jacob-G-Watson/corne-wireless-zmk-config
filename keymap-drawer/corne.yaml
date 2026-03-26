@@ -1,91 +1,5 @@
 layout: {zmk_keyboard: corne}
 layers:
-  Media:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - PREV
-  - PP
-  - NEXT
-  - MUTE
-  - VOL DN
-  - VOL UP
-  - BT CLR
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Symbols, h: toggle}
-  - ''
-  - SPC
-  - ENTER
-  - ''
-  - ''
-  Symbols:
-  - TAB
-  - '!'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - KP MULTIPLY
-  - (
-  - )
-  - BSPC
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - '-'
-  - '='
-  - '['
-  - ']'
-  - \
-  - '`'
-  - {t: Base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - _
-  - +
-  - '{'
-  - '}'
-  - '|'
-  - '~'
-  - {t: Base, h: toggle}
-  - {t: Media, h: toggle}
-  - SPC
-  - ENTER
-  - ''
-  - ''
   Base:
   - TAB
   - Q
@@ -111,7 +25,7 @@ layers:
   - {t: L, h: RALT}
   - {t: ;, h: RGUI}
   - ''''
-  - {t: Function, h: toggle}
+  - ''
   - Z
   - X
   - C
@@ -123,38 +37,99 @@ layers:
   - .
   - /
   - ''
-  - {t: Nav&Num, h: toggle}
-  - {t: Symbols, h: toggle}
+  - Media
+  - Nav
+  - {t: SPC, h: Sym}
+  - ENTER
+  - {t: BSPC, h: Num}
+  - {t: DEL, h: Fun}
+  Nav:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Ctl+Z
+  - Ctl+X
+  - Ctl+C
+  - Ctl+V
+  - Ctl+Y
+  - ''
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHIFT
+  - ''
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - CAPS
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - INS
+  - HOME
+  - PG DN
+  - PG UP
+  - END
+  - ''
+  - ''
+  - {type: held}
   - SPC
   - ENTER
   - BSPC
   - DEL
-  Nav&Num:
-  - TAB
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
+  Num:
+  - ''
+  - '['
   - '7'
   - '8'
   - '9'
+  - ']'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ;
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - ''
+  - RSHIFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - ''
+  - ''
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - \
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - .
   - '0'
-  - BSPC
-  - HOME
-  - {t: END, h: LGUI}
-  - {t: PG UP, h: LALT}
-  - {t: PG DN, h: LCTRL}
-  - {t: PRINTSCREEN, h: LSHFT}
-  - PAUSE BREAK
-  - {t: LEFT, h: RSHFT}
-  - {t: DOWN, h: RCTRL}
-  - {t: UP, h: RALT}
-  - {t: RIGHT, h: RGUI}
+  - '-'
   - ''
+  - {type: held}
   - ''
-  - {t: Base, h: toggle}
+  Sym:
   - ''
   - ''
   - ''
@@ -162,29 +137,108 @@ layers:
   - ''
   - ''
   - ''
+  - '{'
+  - '&'
+  - KP MULTIPLY
+  - (
+  - '}'
+  - ''
+  - RSHIFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - ''
+  - ''
+  - ':'
+  - $
+  - '%'
+  - ^
+  - +
   - ''
   - ''
   - ''
   - ''
-  - {t: Function, h: toggle}
-  - {t: Base, h: toggle}
-  - SPC
-  - ENTER
   - ''
   - ''
-  Function:
-  - F1
-  - F2
-  - F3
-  - F4
-  - F5
-  - F6
+  - ''
+  - '~'
+  - '!'
+  - '@'
+  - '#'
+  - '|'
+  - ''
+  - ''
+  - {type: held}
+  - (
+  - )
+  - _
+  Fun:
+  - ''
+  - F12
   - F7
   - F8
   - F9
-  - F10
+  - PRINTSCREEN
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - F11
-  - F12
+  - F4
+  - F5
+  - F6
+  - SCROLLLOCK
+  - ''
+  - RSHIFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - ''
+  - ''
+  - F10
+  - F1
+  - F2
+  - F3
+  - PAUSE BREAK
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - SPC
+  - ENTER
+  - BSPC
+  - {t: DEL, type: held}
+  Media:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - BT CLR
+  - ''
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHIFT
+  - ''
+  - ''
+  - PREV
+  - VOL DN
+  - VOL UP
+  - NEXT
   - ''
   - ''
   - ''
@@ -197,21 +251,10 @@ layers:
   - ''
   - ''
   - ''
-  - {t: Base, h: toggle}
+  - ''
+  - {type: held}
   - ''
   - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: Nav&Num, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ''
+  - STOP
+  - PP
+  - MUTE
