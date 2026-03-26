@@ -8,11 +8,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define MEDIA    0
-#define SYMBOLS  1
-#define BASE     2
-#define NAVNUM   3
-#define FUNCTION 4
+#define BASE     0
+#define NAV      1
+#define NUM      2
+#define SYM      3
+#define FUN      4
+#define MEDIA    5
 
 
 / {
@@ -41,40 +42,34 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
             hold-trigger-on-release;
         };
+
+        hmr_mo: home_row_mod_right_mo {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <170>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+            hold-trigger-on-release;
+        };
+
+        hml_mo: home_row_mod_left_mo {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <170>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+            hold-trigger-on-release;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
-
-        media_layer {
-// -----------------------------------------------------------------------------------------
-// |      |    |    |    |    |    |   | PREV | PLAY | NEXT | MUTE | VOLD | VOLU |
-// |BTCLR | BT1| BT2| BT3| BT4| BT5|   |      |      |      |      |      |      |
-// | BASE |    |    |    |    |    |   |      |      |      |      |      |      |
-//          |     | LWR | SPC | ENT |   |     |
-            display-name = "Media";
-            bindings = <
-   &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP
-    &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4        &none     &none       &none       &none          &none &none
-    &to BASE &none  &none  &none  &none  &none  &none       &none     &none       &none       &none          &none
-             &to SYMBOLS  &none  &kp SPC  &kp ENTER  &none  &none
-            >;
-        };
-
-        raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// |      |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | BASE |     |     |     |     |     |   |  _  |  +  |  {  |  }  |  |  |  ~   |
-//          | BASE | MED | SPC | ENTER |   |     |
-            display-name = "Symbols";
-            bindings = <
-    &kp TAB   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-    &none     &none    &none  &none    &none    &none       &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-    &to BASE  &none    &none  &none    &none    &none       &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-               &to BASE   &to MEDIA  &kp SPC &kp ENTER &none &none
-            >;
-        };
 
         default_layer {
 // -----------------------------------------------------------------------------------------
@@ -86,40 +81,87 @@
             bindings = <
     &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
     &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI &kp SQT
-    &to FUNCTION &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
-              &to NAVNUM &to SYMBOLS &kp SPC &kp ENTER &kp BSPC &kp DEL
+    &none &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
+              &mo MEDIA &mo NAV &hml_mo SYM SPC &kp ENTER &hmr_mo NUM BSPC &hmr_mo FUN DEL
             >;
         };
 
-        lower_layer {
+        nav_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-// | HOME | END | PGUP| PGDN| PSCR| PAUS|   | LEFT | DOWN|  UP | RIGHT|    |      |
-// | BASE |     |     |     |     |     |   |      |     |     |      |    |      |
-//          | BASE | FN | SPC | ENTER |   |     |
-            display-name = "Nav&Num";
+// |      |     |     |     |     |     |   |      | UNDO | CUT  | COPY | PASTE | REDO |
+// |      | GUI | ALT | CTRL| SHFT|     |   |      | LEFT | DOWN |  UP  | RIGHT | CAPS |
+// | BASE |     |     |     |     |     |   | INS  | HOME | PGDN | PGUP | END   |      |
+    //          | NUM |   | SPC | ENTER | BSPC | DEL |
+            display-name = "Nav";
             bindings = <
-    &kp TAB   &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6   &kp N7   &kp N8 &kp N9  &kp N0 &kp BSPC
-    &kp HOME  &hml LGUI END &hml LALT PG_UP &hml LCTRL PG_DN &hml LSHFT PRINTSCREEN &kp PAUSE_BREAK   &hmr RSHFT LEFT &hmr RCTRL DOWN &hmr RALT UP &hmr RGUI RIGHT  &none &none
-    &to BASE  &none   &none   &none &none     &none   &none &none  &none &none     &none &none
-               &to FUNCTION  &to BASE   &kp SPC &kp ENTER &none &none
+    &none     &none    &none    &none     &none      &none            &none     &kp LC(Z)   &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y)
+    &none     &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT &kp CAPS  &none
+    &none  &none    &none    &none     &none      &none            &kp INS   &kp HOME   &kp PG_DN  &kp PG_UP  &kp END   &none
+                        &none &none    &kp SPC          &kp ENTER &kp BSPC &kp DEL
             >;
         };
 
+        num_layer {
+    // -----------------------------------------------------------------------------------------
+    // |      |  [  |  7  |  8  |  9  |  ]  |   |      |      |      |      |      |      |
+    // |      |  ;  |  4  |  5  |  6  |  =  |   |      | SHFT | CTRL | ALT  | GUI  |      |
+    // |      |  `  |  1  |  2  |  3  |  \  |   |      |      |      | RALT |      |      |
+    //          |  .  |  0  |  -  |   |   |   |
+            display-name = "Num";
+            bindings = <
+        &none    &kp LBKT  &kp N7 &kp N8 &kp N9 &kp RBKT         &none    &none      &none      &none     &none       &none
+        &none    &kp SEMI  &kp N4 &kp N5 &kp N6 &kp EQUAL        &none    &kp RSHIFT &kp RCTRL  &kp RALT  &kp RGUI    &none
+        &none    &kp GRAVE &kp N1 &kp N2 &kp N3 &kp BSLH         &none    &none      &none      &none  &none       &none
+               &kp DOT &kp N0 &kp MINUS &none &none &none
+            >;
+        };
 
-        function_layer {
+        sym_layer {
 // -----------------------------------------------------------------------------------------
-// | F1   | F2  | F3  | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12  |
-// | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
-// | BASE |   |   |   |   |   |   |   |   |   |   |   |    |
-//          | SYM |   |   |   |   |   |
-            display-name = "Function";
+    // |      |      |      |      |      |      |   |      |  {  |  &  |  *  |  (  |  }  |
+    // |      | SHFT | CTRL | ALT  | GUI  |      |   |      |  :  |  $  |  %  |  ^  |  +  |
+    // |      |      |      |      |      |      |   |      |  ~  |  !  |  @  |  #  |  |  |
+    //          |   |   |   |  (  |  )  |  _  |
+            display-name = "Sym";
             bindings = <
-   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12
-    &none   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-   &to BASE &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-               &none   &to NAVNUM   &none   &none   &none   &none
+         &none    &none      &none      &none     &none      &none   &none    &kp LBRC  &kp AMPS   &kp KP_MULTIPLY &kp LPAR  &kp RBRC
+         &none    &kp RSHIFT &kp RCTRL  &kp RALT  &kp RGUI   &none   &none    &kp COLON &kp DLLR   &kp PRCNT       &kp CARET &kp PLUS
+         &none    &none      &none      &none     &none      &none   &none    &kp TILDE &kp EXCL   &kp AT          &kp HASH  &kp PIPE
+             &none &none &none &kp LPAR &kp RPAR &kp UNDER
             >;
         };
+
+
+        fun_layer {
+// -----------------------------------------------------------------------------------------
+// |      | F12 | F7 | F8 | F9 | PSCR |   |      |      |      |      |      |      |
+// |      | F11 | F4 | F5 | F6 | SCLK |   |      | SHFT | CTRL | ALT  | GUI  |      |
+// |      | F10 | F1 | F2 | F3 | PAUS |   |      |      |      | RALT |      |      |
+//         |   |    | SPC                        | ENTER| BSPC | DEL  |
+            display-name = "Fun";
+            bindings = <
+    &none    &kp F12 &kp F7 &kp F8 &kp F9 &kp PRINTSCREEN   &none    &none      &none      &none     &none  &none
+    &none    &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK    &none    &kp RSHIFT &kp RCTRL  &kp RALT  &kp RGUI    &none
+    &none    &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK   &none    &none      &none      &none  &none       &none
+               &none &none &kp SPC &kp ENTER &kp BSPC &kp DEL
+            >;
+        };
+
+        media_layer {
+// -----------------------------------------------------------------------------------------
+// |      |      |      |      |      |      |   |      | BT1  | BT2  | BT3  | BT4  |BTCLR |
+// |      | GUI  | ALT  | CTRL | SHFT |      |   |      | PREV | VOLD | VOLU | NEXT |      |
+// |      |      |      |     |      |      |   |      |      |      |      |      |      |
+//          |      |      |      | STOP | PLAY | MUTE |
+            display-name = "Media";
+            bindings = <
+    &none  &none      &none       &none       &none      &none  &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR
+    &none  &kp LGUI    &kp LALT &kp LCTRL &kp LSHIFT &none  &none  &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &none
+    &none  &none       &none  &none &none  &none  &none  &none      &none       &none       &none      &none
+             &none  &none  &none  &kp C_STOP  &kp C_PP  &kp C_MUTE
+            >;
+        };
+
+
     };
 };
