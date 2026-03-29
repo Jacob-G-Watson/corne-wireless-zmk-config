@@ -46,7 +46,7 @@ jobs:
           for keymap_file in config/*.keymap; do
             keyboard=$(basename -s .keymap "$keymap_file")
             keymap $config_arg parse -z "$keymap_file" > "keymap-drawer/${keyboard}.yaml"
-            keymap $config_arg draw "keymap-drawer/${keyboard}.yaml" -n 6 > "keymap-drawer/${keyboard}-combined.svg"
+            keymap -c keymap_drawer.combined.yaml draw "keymap-drawer/${keyboard}.yaml" > "keymap-drawer/${keyboard}-combined.svg"
           done
 
       - name: Commit updated images

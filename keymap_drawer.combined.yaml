@@ -1,0 +1,6 @@
+draw_config:
+  n_columns: 6           # Draw all 6 layers in a single row
+  key_w: 60
+  key_h: 56
+  split_gap: 30
+  dark_mode: false
