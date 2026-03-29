@@ -18,4 +18,4 @@ draw_config:
 parse_config:
   # ZMK specific parsing options
   zmk_keycode_map: {}
-  zmk_combos: true
+  zmk_combos: {}
