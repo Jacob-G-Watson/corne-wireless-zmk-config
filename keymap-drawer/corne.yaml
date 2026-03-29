@@ -23,8 +23,8 @@ layers:
   - {t: J, h: RSHFT}
   - {t: K, h: RCTRL}
   - {t: L, h: RALT}
-  - {t: ;, h: RGUI}
-  - ''''
+  - {t: SEMI, h: RGUI}
+  - SQT
   - ''
   - Z
   - X
@@ -33,9 +33,9 @@ layers:
   - B
   - N
   - M
-  - ','
-  - .
-  - /
+  - COMMA
+  - DOT
+  - FSLH
   - ''
   - Media
   - Nav
@@ -50,12 +50,12 @@ layers:
   - ''
   - ''
   - ''
-  - ''
   - Ctl+Z
   - Ctl+X
   - Ctl+C
   - Ctl+V
   - Ctl+Y
+  - ''
   - ''
   - LGUI
   - LALT
@@ -88,11 +88,11 @@ layers:
   - DEL
   Num:
   - ''
-  - '['
+  - LBKT
   - '7'
   - '8'
   - '9'
-  - ']'
+  - RBKT
   - ''
   - ''
   - ''
@@ -100,32 +100,32 @@ layers:
   - ''
   - ''
   - ''
-  - ;
+  - SEMI
   - '4'
   - '5'
   - '6'
-  - '='
+  - EQUAL
   - ''
   - RSHIFT
   - RCTRL
   - RALT
   - RGUI
   - ''
-  - ''
-  - '`'
+  - GRAVE
+  - EQUAL
   - '1'
   - '2'
   - '3'
-  - \
+  - FSLH
   - ''
   - ''
   - ''
   - ''
   - ''
   - ''
-  - .
+  - DOT
   - '0'
-  - '-'
+  - MINUS
   - ''
   - {type: held}
   - ''
@@ -136,24 +136,24 @@ layers:
   - ''
   - ''
   - ''
+  - GRAVE
+  - LBRC
+  - RBRC
+  - AMPS
+  - PLUS
+  - MINUS
   - ''
-  - '{'
-  - '&'
-  - KP MULTIPLY
-  - (
-  - '}'
-  - ''
-  - RSHIFT
-  - RCTRL
-  - RALT
   - RGUI
+  - RALT
+  - RCTRL
+  - RSHIFT
   - ''
   - ''
-  - ':'
-  - $
-  - '%'
-  - ^
-  - +
+  - LBKT
+  - RBKT
+  - PIPE
+  - STAR
+  - FSLH
   - ''
   - ''
   - ''
@@ -161,17 +161,17 @@ layers:
   - ''
   - ''
   - ''
-  - '~'
-  - '!'
-  - '@'
-  - '#'
-  - '|'
+  - LPAR
+  - RPAR
+  - SEMICOLON
+  - GREATER THAN
+  - LESS THAN
   - ''
   - ''
   - {type: held}
-  - (
-  - )
-  - _
+  - ''
+  - ''
+  - ''
   Fun:
   - ''
   - F12
@@ -255,6 +255,6 @@ layers:
   - {type: held}
   - ''
   - ''
-  - STOP
   - PP
   - MUTE
+  - STOP
