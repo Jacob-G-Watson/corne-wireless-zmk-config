@@ -27,14 +27,30 @@ jobs:
       draw_args: ""
 
   draw-combined:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.combined_layers }}
-    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-    with:
-      keymap_patterns: "config/*.keymap"
-      config_path: "keymap_drawer.config.yaml"
-      output_folder: "keymap-drawer"
-      output_filename: "{KEYBOARD}-combined.svg"
-      parse_args: ""
-      draw_args: "--select-layers Base Nav Num Sym Fun Media"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install keymap-drawer
+        run: pipx install keymap-drawer
+
+      - name: Draw combined keymap
+        run: |
+          mkdir -p keymap-drawer
+          config_arg=""
+          [ -e "keymap_drawer.config.yaml" ] && config_arg="-c keymap_drawer.config.yaml"
+          
+          for keymap_file in config/*.keymap; do
+            keyboard=$(basename -s .keymap "$keymap_file")
+            keymap $config_arg parse -z "$keymap_file" > "keymap-drawer/${keyboard}.yaml"
+            keymap $config_arg draw "keymap-drawer/${keyboard}.yaml" -n 6 > "keymap-drawer/${keyboard}-combined.svg"
+          done
+
+      - name: Commit updated images
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: 'keymap-drawer/*.svg keymap-drawer/*.yaml'
+          commit_message: 'keymap-drawer render (combined)'
