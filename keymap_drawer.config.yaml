@@ -1,0 +1,21 @@
+draw_config:
+  # Styling options for keymap drawing
+  key_w: 60              # Key width in pixels
+  key_h: 56              # Key height in pixels
+  split_gap: 30          # Gap between split halves
+  combo_w: 28            # Combo box width
+  combo_h: 26            # Combo box height
+  
+  # Appearance
+  dark_mode: false
+  n_columns: 1           # Number of layer columns (1 = vertical stack)
+  separate_combo_diagrams: false
+  
+  # SVG styling
+  svg_extra_style: |
+    /* Custom styles can be added here */
+
+parse_config:
+  # ZMK specific parsing options
+  zmk_keycode_map: {}
+  zmk_combos: true

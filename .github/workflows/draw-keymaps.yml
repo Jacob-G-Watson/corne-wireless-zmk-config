@@ -2,6 +2,12 @@ name: Draw keymaps
 
 on:
   workflow_dispatch:
+    inputs:
+      combined_layers:
+        description: 'Draw all layers combined on single image'
+        required: false
+        type: boolean
+        default: false
   push:
     paths:
       - "config/*.keymap"
@@ -19,3 +25,16 @@ jobs:
       output_folder: "keymap-drawer"
       parse_args: ""
       draw_args: ""
+
+  draw-combined:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.combined_layers }}
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    permissions:
+      contents: write
+    with:
+      keymap_patterns: "config/*.keymap"
+      config_path: "keymap_drawer.config.yaml"
+      output_folder: "keymap-drawer"
+      output_filename: "{KEYBOARD}-combined.svg"
+      parse_args: ""
+      draw_args: "--select-layers Base Nav Num Sym Fun Media"
