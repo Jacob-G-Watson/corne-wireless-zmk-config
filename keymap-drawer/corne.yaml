@@ -148,7 +148,7 @@ layers:
   - RCTRL
   - RSHIFT
   - ''
-  - ''
+  - SEMI
   - LBKT
   - RBKT
   - PIPE
@@ -163,9 +163,9 @@ layers:
   - ''
   - LPAR
   - RPAR
-  - SEMICOLON
-  - GREATER THAN
+  - EQUAL
   - LESS THAN
+  - GREATER THAN
   - ''
   - ''
   - {type: held}
