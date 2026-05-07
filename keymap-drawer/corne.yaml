@@ -37,12 +37,12 @@ layers:
   - DOT
   - FSLH
   - ''
-  - Fun
-  - Sym
-  - {t: SPC, h: Media}
+  - Media
+  - Nav
+  - {t: SPC, h: Sym}
   - ENTER
-  - {t: BSPC, h: Nav}
-  - {t: DEL, h: Num}
+  - {t: BSPC, h: Num}
+  - {t: DEL, h: Fun}
   Sym:
   - ''
   - ''
@@ -81,8 +81,8 @@ layers:
   - LESS THAN
   - GREATER THAN
   - ''
-  - {type: held}
   - ''
+  - {type: held}
   - ''
   - ''
   - ''
@@ -124,10 +124,10 @@ layers:
   - END
   - ''
   - ''
-  - ''
+  - {type: held}
   - SPC
   - ENTER
-  - {t: BSPC, type: held}
+  - BSPC
   - DEL
   Media:
   - ''
@@ -166,9 +166,9 @@ layers:
   - ''
   - ''
   - ''
-  - ''
-  - ''
   - {type: held}
+  - ''
+  - ''
   - PP
   - MUTE
   - STOP
@@ -213,8 +213,8 @@ layers:
   - '0'
   - MINUS
   - ''
-  - ''
   - {type: held}
+  - ''
   Fun:
   - ''
   - F12
@@ -252,9 +252,9 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - SPC
   - ENTER
   - BSPC
-  - DEL
+  - {t: DEL, type: held}
