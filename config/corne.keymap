@@ -74,21 +74,42 @@
         default_layer {
             display-name = "Base";
             bindings = <
-    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
-    &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI &kp SQT
-    &none &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
-              &mo MEDIA &mo NAV &hml_mo SYM SPC &kp ENTER &hmr_mo NUM BSPC &hmr_mo FUN DEL
+        &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I   &kp O   &kp P  &kp BSPC
+        &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI &kp SQT
+        &none &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &none
+                &mo MEDIA &mo NAV &hml_mo SYM SPC &kp ENTER &hmr_mo NUM BSPC &hmr_mo FUN DEL
+            >;
+        };
+
+        sym_layer {
+            display-name = "Sym";
+            bindings = <
+         &none    &none      &none      &none     &none      &none          &kp GRAVE &kp LBRC  &kp RBRC  &kp AMPS   &kp PLUS &kp MINUS
+         &none    &kp RGUI  &kp RALT   &kp RCTRL  &kp RSHIFT   &none        &kp SEMI  &kp LBKT &kp RBKT &kp PIPE   &kp STAR &kp FSLH
+         &none    &none      &none      &none     &none      &none          &kp BSLH  &kp LPAR &kp RPAR   &kp EQUAL &kp LESS_THAN &kp GREATER_THAN  
+             &none &none &none                                              &none &none &none
             >;
         };
 
         nav_layer {
             display-name = "Nav";
             bindings = <
-    &none     &none    &none    &none     &none      &none            &kp LC(Z)   &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y) &none  
-    &none     &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT &kp CAPS  &none
-    &none  &none    &none    &none     &none      &none            &kp INS   &kp HOME   &kp PG_DN  &kp PG_UP  &kp END   &none
+        &none     &none    &none    &none     &none      &none            &kp LC(Z)   &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y) &none  
+        &none     &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT &kp CAPS  &none
+        &none  &none    &none    &none     &none      &none            &kp INS   &kp HOME   &kp PG_DN  &kp PG_UP  &kp END   &none
                         &none &none    &kp SPC          &kp ENTER &kp BSPC &kp DEL
             >;
+        };
+
+        
+        media_layer {
+            display-name = "Media";
+            bindings = <
+        &none  &none      &none       &none       &none      &none  &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR
+        &none  &kp LGUI    &kp LALT &kp LCTRL &kp LSHIFT &none  &none  &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &none
+        &none  &none       &none  &none &none  &none  &none  &none      &none       &none       &none      &none
+                &none  &none  &none  &kp C_PP  &kp C_MUTE &kp C_STOP
+                >;
         };
 
         num_layer {
@@ -101,36 +122,16 @@
             >;
         };
 
-        sym_layer {
-            display-name = "Sym";
-            bindings = <
-         &none    &none      &none      &none     &none      &none   &kp GRAVE &kp LBRC  &kp RBRC  &kp AMPS   &kp PLUS &kp MINUS
-         &none    &kp RGUI  &kp RALT   &kp RCTRL  &kp RSHIFT   &none   &kp SEMI  &kp LBKT &kp RBKT &kp PIPE   &kp STAR &kp FSLH
-         &none    &none      &none      &none     &none      &none   &none    &kp LPAR &kp RPAR   &kp EQUAL &kp LESS_THAN &kp GREATER_THAN  
-             &none &none &none &none &none &none
-            >;
-        };
-
-
         fun_layer {
             display-name = "Fun";
             bindings = <
-    &none    &kp F12 &kp F7 &kp F8 &kp F9 &kp PRINTSCREEN   &none    &none      &none      &none     &none  &none
-    &none    &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK    &none    &kp RSHIFT &kp RCTRL  &kp RALT  &kp RGUI    &none
-    &none    &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK   &none    &none      &none      &none  &none       &none
-               &none &none &kp SPC &kp ENTER &kp BSPC &kp DEL
+        &none    &kp F12 &kp F7 &kp F8 &kp F9 &kp PRINTSCREEN   &none    &none      &none      &none     &none  &none
+        &none    &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK    &none    &kp RSHIFT &kp RCTRL  &kp RALT  &kp RGUI    &none
+        &none    &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK   &none    &none      &none      &none  &none       &none
+                &none &none &kp SPC &kp ENTER &kp BSPC &kp DEL
             >;
         };
 
-        media_layer {
-            display-name = "Media";
-            bindings = <
-    &none  &none      &none       &none       &none      &none  &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR
-    &none  &kp LGUI    &kp LALT &kp LCTRL &kp LSHIFT &none  &none  &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &none
-    &none  &none       &none  &none &none  &none  &none  &none      &none       &none       &none      &none
-             &none  &none  &none  &kp C_PP  &kp C_MUTE &kp C_STOP
-            >;
-        };
 
 
     };
