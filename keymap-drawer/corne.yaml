@@ -37,12 +37,55 @@ layers:
   - DOT
   - FSLH
   - ''
-  - Media
-  - Nav
-  - {t: SPC, h: Sym}
+  - Fun
+  - Sym
+  - {t: SPC, h: Media}
   - ENTER
-  - {t: BSPC, h: Num}
-  - {t: DEL, h: Fun}
+  - {t: BSPC, h: Nav}
+  - {t: DEL, h: Num}
+  Sym:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - GRAVE
+  - LBRC
+  - RBRC
+  - AMPS
+  - PLUS
+  - MINUS
+  - ''
+  - RGUI
+  - RALT
+  - RCTRL
+  - RSHIFT
+  - ''
+  - SEMI
+  - LBKT
+  - RBKT
+  - PIPE
+  - STAR
+  - FSLH
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - BSLH
+  - LPAR
+  - RPAR
+  - EQUAL
+  - LESS THAN
+  - GREATER THAN
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
   Nav:
   - ''
   - ''
@@ -81,11 +124,54 @@ layers:
   - END
   - ''
   - ''
-  - {type: held}
+  - ''
   - SPC
   - ENTER
-  - BSPC
+  - {t: BSPC, type: held}
   - DEL
+  Media:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - BT CLR
+  - ''
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHIFT
+  - ''
+  - ''
+  - PREV
+  - VOL DN
+  - VOL UP
+  - NEXT
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - PP
+  - MUTE
+  - STOP
   Num:
   - ''
   - LBKT
@@ -127,51 +213,8 @@ layers:
   - '0'
   - MINUS
   - ''
-  - {type: held}
-  - ''
-  Sym:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - GRAVE
-  - LBRC
-  - RBRC
-  - AMPS
-  - PLUS
-  - MINUS
-  - ''
-  - RGUI
-  - RALT
-  - RCTRL
-  - RSHIFT
-  - ''
-  - SEMI
-  - LBKT
-  - RBKT
-  - PIPE
-  - STAR
-  - FSLH
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - LPAR
-  - RPAR
-  - EQUAL
-  - LESS THAN
-  - GREATER THAN
-  - ''
   - ''
   - {type: held}
-  - ''
-  - ''
-  - ''
   Fun:
   - ''
   - F12
@@ -209,52 +252,9 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - {type: held}
   - ''
   - SPC
   - ENTER
   - BSPC
-  - {t: DEL, type: held}
-  Media:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - BT CLR
-  - ''
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHIFT
-  - ''
-  - ''
-  - PREV
-  - VOL DN
-  - VOL UP
-  - NEXT
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {type: held}
-  - ''
-  - ''
-  - PP
-  - MUTE
-  - STOP
+  - DEL
